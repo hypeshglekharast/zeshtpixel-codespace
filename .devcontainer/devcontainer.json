@@ -1,0 +1,30 @@
+{
+  "name": "ZBProxy Codespace",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "installZsh": true,
+      "configureZshAsDefaultShell": true,
+      "installOhMyZsh": true,
+      "upgradePackages": true
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.makefile-tools",
+        "ms-vscode.cpptools-extension-pack"
+      ]
+    }
+  },
+  "postCreateCommand": "bash .devcontainer/post-create.sh",
+  "forwardPorts": [25565],
+  "portsAttributes": {
+    "25565": {
+      "label": "Minecraft Proxy",
+      "onAutoForward": "notify"
+    }
+  },
+  "remoteUser": "vscode",
+  "updateContentCommand": "bash .devcontainer/update-content.sh"
+}
